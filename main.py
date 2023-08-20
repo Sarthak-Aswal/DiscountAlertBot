@@ -11,11 +11,13 @@ def main():
     while True:
         currentPrice = price.getCurrentPrice(url, userAgent)
         originalPrice = price.getOriginalPrice()
-        if originalPrice == 0:
+        if currentPrice==-1:
+            print("Error in fetching data")
+        elif originalPrice == 0:
             price.setPrice(str(currentPrice))
 
         elif originalPrice > currentPrice:
-            alert.sendAlert(userMail, originalPrice, currentPrice)
+            alert.sendAlert(userMail, originalPrice, currentPrice,url)
             price.setPrice(str(0.00))
             return
         time.sleep(30 * 60)

@@ -14,6 +14,8 @@ def getCurrentPrice(url, userAgent):
         price = float(price)
         print(price)
         return price
+    else:
+        return -1
 
 
 # gets the original price of product from a file that stores the original price
