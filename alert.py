@@ -11,11 +11,11 @@ def sendAlert(userMail,originalPrice,currentPrice,url):
         appPassword = os.environ.get('appPassword')
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login(senderEmail,appPassword)
-        email=EmailMessage()
-        email['From']=senderEmail
-        email['To']=userMail
-        email['Subject']='Discount Alert'
+        server.login(senderEmail, appPassword)
+        email = EmailMessage()
+        email['From'] = senderEmail
+        email['To'] = userMail
+        email['Subject'] = 'Discount Alert'
         email.set_content(message)
         server.send_message(email)
         server.quit()

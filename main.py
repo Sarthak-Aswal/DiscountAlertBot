@@ -20,7 +20,7 @@ def main():
             alert.sendAlert(userMail, originalPrice, currentPrice,url)
             price.setPrice(str(0.00))
             return
-        time.sleep(30 * 60)
+        time.sleep(15 * 60)
 
 
 if __name__ == "__main__":

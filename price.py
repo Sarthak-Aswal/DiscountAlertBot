@@ -7,12 +7,11 @@ from bs4 import BeautifulSoup
 def getCurrentPrice(url, userAgent):
     response = requests.get(url, headers={'User-Agent': userAgent}) # making https request
     print(response)
-    if response.status_code==200:
-        data=response.text
+    if response.status_code == 200:
+        data = response.text
         soup = BeautifulSoup(data, 'lxml')  # creating a soup object
         price = soup.find('span', class_="a-price-whole").text.replace(',', '')
         price = float(price)
-        print(price)
         return price
     else:
         return -1
